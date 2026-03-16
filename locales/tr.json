@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "products": "Ürünler",
+    "exclusive": "Özel Zeytin Yağı",
+    "contact": "İletişim",
+    "language": "Dil"
+  },
+  "hero": {
+    "title": "Kaliteli Kimyasal Çözümler",
+    "subtitle": "Tüm İhtiyaçlarınız İçin Kaliteli Ürünler",
+    "cta": "Ürünleri Keşfedin"
+  },
+  "about": {
+    "title": "Vinkimya Hakkında",
+    "description": "Kaliteli kimyasal çözümler sağlayan önde gelen kimya şirketi.",
+    "vision": "Vizyonumuz",
+    "visionText": "Küresel çapta kaliteli kimyasal çözüm sağlamada güvenilir bir ortak olmak.",
+    "mission": "Misyonumuz",
+    "missionText": "İnovasyon ve müşteri odaklı çözümler aracılığıyla mükemmelliği sunmak."
+  },
+  "products": {
+    "title": "Ürünlerimiz",
+    "filterByCategory": "Kategoriye Göre Filtrele",
+    "allProducts": "Tüm Ürünler",
+    "contactUs": "Fiyatlandırma İçin Bizimle İletişime Geçin",
+    "viewDetails": "Detayları Görüntüle"
+  },
+  "oliveoil": {
+    "title": "Premium Zeytin Yağı",
+    "subtitle": "Özel Premium Kalite Zeytin Yağı",
+    "description": "En kaliteli zeytin yağının tadını çıkarın.",
+    "features": "Temel Özellikler",
+    "purity": "100% Saf",
+    "organic": "Organik ve Doğal",
+    "quality": "Premium Kalite",
+    "noAdditive": "Katkı Maddesi Yok"
+  },
+  "footer": {
+    "company": "Şirket",
+    "companyProfile": "Şirket Profili",
+    "about": "Hakkımızda",
+    "products": "Ürünler",
+    "legal": "Yasal",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Şartlar ve Koşullar",
+    "support": "Destek",
+    "contact": "Bizimle İletişime Geçin",
+    "faq": "Sık Sorulan Sorular",
+    "reviews": "İncelemeler",
+    "followUs": "Bizi Takip Edin",
+    "rights": "Tüm hakları saklıdır."
+  },
+  "contact": {
+    "title": "Bizimle İletişime Geçin",
+    "subtitle": "Ekibimizle iletişime geçin",
+    "name": "Ad Soyad",
+    "email": "E-posta Adresi",
+    "phone": "Telefon Numarası",
+    "message": "Mesajınız",
+    "send": "Mesaj Gönder",
+    "address": "Adres",
+    "phone_label": "Telefon",
+    "email_label": "E-posta"
+  },
+  "faq": {
+    "title": "Sık Sorulan Sorular",
+    "q1": "Hangi ürünleri sunuyorsunuz?",
+    "a1": "Geniş bir kaliteli kimyasal çözüm ve özel ürün yelpazesi sunuyoruz.",
+    "q2": "Nasıl satın alırım?",
+    "a2": "Fiyatlandırma ve satın alma bilgileri için doğrudan bize ulaşın.",
+    "q3": "Uluslararası gemi gönderimi yapıyor musunuz?",
+    "a3": "Evet, Türkiye, Dubai, Suudi Arabistan ve daha pek çok ülkeye gönderim yapıyoruz.",
+    "q4": "İade politikanız nedir?",
+    "a4": "Ayrıntılı iade politikası bilgileri için lütfen ekibimizle iletişime geçin."
+  },
+  "reviews": {
+    "title": "Müşteri İncelemeleri",
+    "subtitle": "Müşterilerimiz Biz Hakkında Ne Diyor"
+  },
+  "buttons": {
+    "learnMore": "Daha Fazlasını Öğrenin",
+    "contactNow": "Şimdi İletişime Geçin",
+    "viewMore": "Daha Fazlasını Görüntüle"
+  }
+}

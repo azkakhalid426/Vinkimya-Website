@@ -1,0 +1,249 @@
+{
+"faq": [
+{
+"keywords": ["hi", "hello", "hey", "good morning", "good evening", "greetings"],
+"answer": "Hello! Welcome to Vinkimya Private Limited. How can I assist you today?"
+},
+{
+"keywords": ["who are you", "about company", "about vinkimya", "company information", "tell me about vinkimya,company"],
+"answer": "Vinkimya Private Limited is a chemical supply company providing stabilizers, metallic stearates, PVC additives, specialty chemicals, and premium olive oil imported from Turkey."
+},
+{
+"keywords": ["Tell me about your products ","what do you sell", "products", "product list", "what products do you have", "chemical products"],
+"answer": "We supply stabilizers, metallic stearates, PVC additives, specialty chemicals, and olive oil imported from Turkey."
+},
+{
+"keywords": ["stabilizers", "pvc stabilizers", "plastic stabilizers", "stabilizer chemicals"],
+"answer": "Vinkimya provides high-quality stabilizers used in PVC manufacturing and plastic processing industries."
+},
+{
+"keywords": ["tell me or what are metallic stearates,PVC stabilizers, zinc sterate,calcium sterate,calcium oxide","metallic stearates", "stearates", "zinc stearate", "calcium stearate", "metal stearate chemicals"],
+"answer": "We supply metallic stearates such as zinc stearate and calcium stearate used in plastics, rubber, and chemical industries."
+},
+{
+"keywords": ["what are plastic additives, pvc resin", "pvc additives", "plastic additives", "pvc chemicals", "additives for pvc"],
+"answer": "Our PVC additives improve durability, stability, and processing performance in PVC production."
+},
+{
+"keywords": ["specialty chemicals", "industrial chemicals", "chemical supply", "chemical materials"],
+"answer": "Vinkimya supplies specialty chemicals for industrial applications including plastics, manufacturing, and chemical processing."
+},
+{
+"keywords": ["Tell me about your Olive oil?","olive oil", "turkish olive oil", "extra virgin olive oil", "imported olive oil", "olive oil product"],
+"answer": "We import premium quality olive oil from Turkey. Our olive oil is sourced from trusted producers to ensure quality and authenticity."
+},
+{
+"keywords": ["olive oil origin", "where is olive oil from", "olive oil country"],
+"answer": "Our olive oil is imported from Turkey, a country well known for producing high-quality olive oil."
+},
+{
+"keywords": ["location", "where are you located", "company location", "country", "office location"],
+"answer": "Vinkimya Private Limited is based in Pakistan and serves customers worldwide."
+},
+{
+"keywords": [
+"olive oil",
+"buy olive oil",
+"sell olive oil",
+"do you sell olive oil",
+"olive oil available",
+"olive oil product",
+"turkish olive oil",
+"extra virgin olive oil",
+"imported olive oil",
+"show olive oil",
+"olive oil supply",
+"olive oil company",
+"food olive oil"
+],
+"answer": "Yes, we import premium quality olive oil from Turkey. Our olive oil is sourced from trusted Turkish producers to ensure high quality and authenticity."
+},
+{
+"keywords": [
+"olive oil packaging",
+"olive oil size",
+"olive oil bottle",
+"olive oil bottle size",
+"olive oil quantity",
+"olive oil pack",
+"olive oil packing",
+"olive oil container",
+"available olive oil size",
+"olive oil packaging options"
+],
+"answer": "Our olive oil is available in multiple packaging options including 500ml bottles, 1L bottles, and bulk packaging for larger orders."
+},
+{
+"keywords": [
+"olive oil pure",
+"is olive oil pure",
+"olive oil quality",
+"olive oil authentic",
+"original olive oil",
+"100% olive oil",
+"natural olive oil",
+"olive oil genuine"
+],
+"answer": "Yes, our olive oil is 100% pure and sourced from trusted Turkish suppliers to ensure authenticity and high quality."
+},
+{
+"keywords": [
+"what is the olive oil price",
+"price of olive oil",
+"olive oil cost",
+"how much olive oil",
+"olive oil rate",
+"olive oil pricing",
+"olive oil quotation"
+],
+"answer": "The price of olive oil depends on the packaging size and order quantity. Please contact us to receive the latest price and quotation."
+},
+{
+"keywords": [
+"olive oil origin",
+"where is olive oil from",
+"olive oil country",
+"olive oil imported from",
+"source of olive oil"
+],
+"answer": "Our olive oil is imported from Turkey, a country well known for producing high-quality olive oil."
+},
+{
+"keywords": [
+"bulk olive oil",
+"olive oil bulk",
+"wholesale olive oil",
+"large quantity olive oil",
+"olive oil wholesale supply",
+"olive oil bulk order"
+],
+"answer": "Yes, we also provide bulk and wholesale olive oil supply depending on order quantity and customer requirements."
+},
+{
+"keywords": ["do you export", "export chemicals", "international export", "export service"],
+"answer": "Yes, Vinkimya provides export services depending on product availability, order quantity, and destination country."
+},
+{
+"keywords": ["shipping", "delivery", "do you ship worldwide", "international shipping"],
+"answer": "Yes, we offer worldwide shipping depending on order quantity and location."
+},
+{
+"keywords": ["delivery time", "how long delivery", "shipping time"],
+"answer": "Delivery time depends on product availability, order size, and shipping destination."
+},
+{
+"keywords": ["minimum order", "minimum quantity", "moq", "order quantity"],
+"answer": "Minimum order quantity depends on the specific product. Please contact us for detailed information."
+},
+{
+"keywords": ["samples", "product samples", "can i get sample", "sample request"],
+"answer": "Yes, product samples may be available depending on the product and request."
+},
+{
+"keywords": ["technical data sheet", "tds", "specification sheet", "product specifications"],
+"answer": "Technical Data Sheets (TDS) are available on the product pages of our website."
+},
+{
+"keywords": ["msds", "material safety data sheet", "safety sheet"],
+"answer": "Material Safety Data Sheets (MSDS) can be provided upon request for safety and handling information."
+},
+{
+"keywords": ["quality", "product quality", "quality standards"],
+"answer": "We ensure high-quality products by sourcing materials from trusted manufacturers and maintaining strict quality standards."
+},
+{
+"keywords": ["industries", "which industries use your products", "applications"],
+"answer": "Our products are widely used in plastics, PVC manufacturing, rubber processing, chemical industries, and food sectors."
+},
+{
+"keywords": ["what type of olive oil do you sell", "do you sell extra virgin olive oil", "extra virgin olive oil quality", "type of olive oil"],
+"answer": "We offer premium quality extra virgin olive oil imported from Turkey and sourced from trusted producers."
+},
+{
+"keywords": ["is your olive oil organic", "organic olive oil", "do you provide organic olive oil"],
+"answer": "Our olive oil is sourced from trusted Turkish suppliers and produced under strict quality standards to ensure purity and authenticity."
+},
+{
+"keywords": ["what is the shelf life of olive oil", "olive oil expiry", "how long olive oil lasts"],
+"answer": "Olive oil usually has a shelf life of around 18 to 24 months when stored properly in a cool and dark place."
+},
+{
+"keywords": ["how should olive oil be stored", "olive oil storage", "best way to store olive oil"],
+"answer": "Olive oil should be stored in a cool and dark place away from heat and sunlight to maintain its quality and freshness."
+},
+{
+"keywords": ["can olive oil be used for cooking", "olive oil for cooking", "is olive oil good for frying"],
+"answer": "Yes, olive oil can be used for cooking and frying. It is widely used in Mediterranean cuisine and is known for its health benefits."
+},
+{
+"keywords": ["health benefits of olive oil", "is olive oil healthy", "benefits of olive oil"],
+"answer": "Olive oil contains healthy fats and antioxidants that support heart health and overall wellness."
+},
+{
+"keywords": ["what color is olive oil", "olive oil color", "appearance of olive oil"],
+"answer": "High quality olive oil can range from golden yellow to greenish depending on the olives and harvest time."
+},
+{
+"keywords": ["do you supply olive oil to restaurants", "olive oil for restaurants", "olive oil for food business"],
+"answer": "Yes, we can supply olive oil to restaurants, distributors, and food businesses depending on the order quantity."
+},
+{
+"keywords": ["do you export olive oil", "olive oil export", "olive oil international supply"],
+"answer": "Yes, we can supply and export olive oil internationally depending on the order size and destination."
+},
+{
+"keywords": ["why choose your olive oil", "why is your olive oil good", "what makes your olive oil special"],
+"answer": "Our olive oil is sourced from trusted Turkish producers to ensure high quality, authenticity, and excellent taste."
+},
+{
+"keywords": ["bulk orders", "large orders", "wholesale chemicals"],
+"answer": "Yes, we accept bulk and wholesale orders for industrial customers."
+},
+{
+"keywords": ["price", "product price", "how much", "pricing"],
+"answer": "Product prices depend on quantity, product type, and market conditions. Please contact us for a quotation."
+},
+{
+"keywords": ["quotation", "get quote", "request quotation"],
+"answer": "You can request a quotation by contacting us through the website contact form."
+},
+{
+"keywords": ["payment methods", "payment options", "how to pay"],
+"answer": "Payment methods depend on the order type and agreement. Our team will provide details during order confirmation."
+},
+{
+"keywords": ["contact", "contact details", "how to contact", "customer support"],
+"answer": "You can contact Vinkimya Private Limited through our website contact form, email, or phone number."
+},
+{
+"keywords": ["email", "company email", "support email"],
+"answer": "You can reach us through the official email listed on our website."
+},
+{
+"keywords": ["phone", "phone number", "call company"],
+"answer": "Our phone contact details are available on the contact page of our website."
+},
+{
+"keywords": ["business partnership", "partnership", "distributor", "become distributor"],
+"answer": "We welcome business partnerships and distributor inquiries. Please contact us for collaboration opportunities."
+},
+{
+"keywords": ["company experience", "how long company operating"],
+"answer": "Vinkimya Private Limited focuses on supplying high-quality chemicals and building long-term relationships with customers."
+},
+{
+  "default": {
+    "answer": "I'm sorry, I didn't understand that. You can ask about our chemicals, stabilizers, PVC additives, olive oil, shipping, or contact information."
+  }
+},
+
+{
+"keywords": ["website", "official website"],
+"answer": "You can explore our products and services on the official Vinkimya website www.vinkimya.com"
+},
+{
+"keywords": ["help", "can you help me", "need assistance"],
+"answer": "Of course! Please tell me what you would like to know about our products or services."
+}
+]
+}
