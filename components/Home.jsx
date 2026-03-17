@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRight, Leaf, Award, Globe, Sparkles } from 'lucide-react';
+import { Leaf, Award, Globe, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -21,25 +21,25 @@ export default function Home() {
     { name: "Awais", message: "Reliable company with great communication and timely delivery." }
   ];
 
+  // ✅ FIXED IMAGE NAME (NO SPACES)
   const ceo = {
     name: "Khurram Mahmood Ramay",
     role: "Chief Executive Officer",
-    image: "/CEO image.png",
-    email: "ramay@vinkimya.com",
+    image: "/CEO-image.png",
   };
 
   const directors = [
-    { name: "Aamna", role: "Director", image: "/aamna.jpeg", email: "aamna@vinkimya.com" },
-    { name: "Romesa", role: "Director", image: "/romesa.jpeg", email: "romesa@vinkimya.com" },
-    { name: "Ali", role: "Director", image: "/ali-director.jpeg", email: "ali@vinkimya.com" },
+    { name: "Aamna", role: "Director", image: "/aamna.jpeg" },
+    { name: "Romesa", role: "Director", image: "/romesa.jpeg" },
+    { name: "Ali", role: "Director", image: "/ali-director.jpeg" },
   ];
 
   const teamMembers = [
-    { name: 'Amjad Siddique', role: 'IT Executive', image: '/Amjad.jpeg', email: 'amjad@vinkimya.com' },
-    { name: 'Azka Khalid', role: 'Foreign Trade Executive', image: '/Azka.jpeg', email: 'azka@vinkimya.com' },
-    { name: 'Ali Haider', role: 'Accounts Executive', image: '/ali.jpeg', email: 'ali@vinkimya.com' },
-    { name: 'Malik Farrukh', role: 'Marketing Executive', image: '/Farukh.jpeg', email: 'malikfarrukh@vinkimya.com' },
-    { name: 'Naveed', role: 'Logistics Executive', image: '/naveed.jpeg', email: 'naveed@vinkimya.com' },
+    { name: 'Amjad Siddique', role: 'IT Executive', image: '/Amjad.jpeg' },
+    { name: 'Azka Khalid', role: 'Foreign Trade Executive', image: '/Azka.jpeg' },
+    { name: 'Ali Haider', role: 'Accounts Executive', image: '/ali.jpeg' },
+    { name: 'Malik Farrukh', role: 'Marketing Executive', image: '/Farukh.jpeg' },
+    { name: 'Naveed', role: 'Logistics Executive', image: '/Naveed.jpeg' },
   ];
 
   const [productsCount, setProductsCount] = useState(0);
@@ -65,7 +65,7 @@ export default function Home() {
     animate(20, setYearsCount);
   }, []);
 
-  // SUBSCRIBE STATE
+  // ✅ SUBSCRIBE STATES
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -73,6 +73,16 @@ export default function Home() {
   const handleSubscribe = async (e) => {
     e.preventDefault();
     if (!email) return;
+
+    // ✅ SAFE CHECK (prevents crash)
+    if (
+      !process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ||
+      !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
+      !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    ) {
+      setMessage("Email service not configured");
+      return;
+    }
 
     setLoading(true);
 
@@ -86,7 +96,6 @@ export default function Home() {
 
       setMessage("Subscribed successfully!");
       setEmail('');
-
     } catch (error) {
       setMessage("Something went wrong.");
     }
@@ -100,7 +109,13 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative h-[700px] flex items-center justify-center text-white text-center">
-        <Image src="/Image.jpg" alt="Hero" fill className="object-cover"/>
+        <Image
+          src="/Image.jpg"
+          alt="Hero"
+          width={1920}
+          height={700}
+          className="object-cover w-full h-full absolute"
+        />
         <div className="absolute inset-0 bg-black/50"></div>
 
         <div className="relative z-10">
@@ -166,7 +181,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DIRECTORS (FIXED SIZE) */}
+      {/* DIRECTORS */}
       <section className="py-20 text-center">
         <h2 className="text-4xl font-bold mb-10">Directors</h2>
 
