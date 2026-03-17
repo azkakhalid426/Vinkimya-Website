@@ -42,20 +42,20 @@ export default function Home() {
     {
       name: "Aamna Khurram Ramay",
       role: "Director",
-      image: "/Aamna.jpeg",
+      image: "/Aamna.png",
       email: "aamna@vinkimya.com",
     },
     {
       name: "Romesa Khurram Ramay",
       role: "Director",
-      image: "/Romesa.jpeg",
+      image: "/Romesa.png",
       email: "romesa@vinkimya.com",
     },
     {
       name: "Adil Shehyrar",
       role: "Director",
-      image: "/adil.jpeg",
-      email: "adil@vinkimya.com",
+      image: "/Adil.png",
+      email: "Adil@vinkimya.com",
     },
   ];
 
@@ -239,7 +239,12 @@ export default function Home() {
             <div className="p-6">
               <h3 className="text-2xl font-bold">{ceo.name}</h3>
               <p className="text-gray-600 mb-2">{ceo.role}</p>
-              <a href={`mailto:${ceo.email}`} className="text-green-600 hover:text-green-800">{ceo.email}</a>
+              <a
+  href={`mailto:${ceo.email}?subject=Inquiry from Website&body=Hello, I want to contact you.`}
+  className="text-green-600 hover:text-green-800"
+>
+  {ceo.email}
+</a>
             </div>
           </div>
         </div>
@@ -261,7 +266,12 @@ export default function Home() {
               <div className="p-6 text-center">
                 <h3 className="text-2xl font-bold">{director.name}</h3>
                 <p className="text-gray-600 mb-2">{director.role}</p>
-                <a href={`mailto:${director.email}`} className="text-green-600 hover:text-green-800">{director.email}</a>
+                <a
+                  href={`mailto:${director.email}?subject=Inquiry from Website&body=Hello, I want to contact you.`}
+                  className="text-green-600 hover:text-green-800"
+                >
+                  {director.email}
+                </a>
               </div>
             </div>
           ))}
@@ -284,7 +294,9 @@ export default function Home() {
               <div className="p-5 text-center">
                 <h3 className="font-semibold text-lg">{member.name}</h3>
                 <p className="text-gray-600 mb-2">{member.role}</p>
-                <a href={`mailto:${member.email}`} className="text-green-600 hover:text-green-800">{member.email}</a>
+                <a href={`mailto:${member.email}`} className="text-green-600 hover:text-green-800">
+  {member.email}
+</a>
               </div>
             </div>
           ))}
