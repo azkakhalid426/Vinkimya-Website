@@ -51,7 +51,7 @@ export default function About() {
           {/* Image */}
           <div className="group">
             <Image
-              src="/About.png"
+              src="/About.jpeg"
               alt="VinKimya Company"
               width={600}
               height={450}
