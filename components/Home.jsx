@@ -31,16 +31,13 @@ export default function Home() {
     },
   ];
 
-  // ✅ CEO separated (ONLY change)
-  const ceo = {
-    name: "Khurram Mahmood Ramay",
-    role: "CEO & Director",
-    image: "/CEO image.png",
-    email: "ramay@vinkimya.com",
-  };
-
-  // ✅ Directors without CEO
   const directors = [
+    {
+      name: "Khurram Mahmood Ramay",
+      role: "CEO & Director",
+      image: "/CEO image.png",
+      email: "ramay@vinkimya.com",
+    },
     {
       name: "Aamna",
       role: "Director",
@@ -137,144 +134,177 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40"></div>
 
         <div className="relative z-10 max-w-3xl">
-          <h1 className="text-6xl font-bold mb-6">Premium Chemical Solutions</h1>
+
+          <h1 className="text-6xl font-bold mb-6">
+            Premium Chemical Solutions
+          </h1>
+
           <p className="text-xl mb-10">
             Leading chemical company providing premium products and exclusive solutions to global clients
           </p>
 
           <div className="flex gap-4 justify-center">
-            <Link href="/products" className="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 hover:scale-105 transition flex items-center">
+
+            <Link
+              href="/products"
+              className="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 hover:scale-105 transition flex items-center"
+            >
               Explore Products
               <ChevronRight size={20} className="ml-2"/>
             </Link>
 
-            <Link href="/about" className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition">
+            <Link
+              href="/about"
+              className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition"
+            >
               Learn More
             </Link>
+
           </div>
+
         </div>
+
       </section>
 
       {/* FEATURES */}
       <section className="py-20 bg-white">
+
         <div className="max-w-7xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Why Choose Vinkimya?</h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
               <div key={index} className="p-8 border rounded-xl hover:border-green-500 hover:shadow-xl hover:-translate-y-2 transition">
+
                 <div className="mb-4 p-3 bg-green-100 rounded-lg inline-block">
                   <Icon size={24} className="text-green-600"/>
                 </div>
+
                 <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
+
               </div>
             );
           })}
+
         </div>
+
       </section>
 
       {/* STATS */}
       <section className="py-20 bg-gray-50">
+
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 text-center gap-8">
+
           <div>
             <div className="text-5xl font-bold text-green-600">{productsCount}+</div>
             <p className="text-gray-600">Premium Products</p>
           </div>
+
           <div>
             <div className="text-5xl font-bold text-green-600">{countriesCount}+</div>
             <p className="text-gray-600">Countries Served</p>
           </div>
+
           <div>
             <div className="text-5xl font-bold text-green-600">{yearsCount}+</div>
             <p className="text-gray-600">Years Experience</p>
           </div>
-        </div>
-      </section>
 
-      {/* CEO */}
-      <section className="py-24 bg-white">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">Chief Executive Officer</h2>
         </div>
 
-        <div className="flex justify-center">
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-[350px]">
-            <div className="relative w-full aspect-[4/5]">
-              <Image src={ceo.image} alt={ceo.name} fill className="object-cover"/>
-            </div>
-
-            <div className="p-6 text-center">
-              <h3 className="text-2xl font-bold">{ceo.name}</h3>
-              <p className="text-gray-600 mb-3">{ceo.role}</p>
-              <a href={`mailto:${ceo.email}`} className="text-green-600 hover:text-green-800">
-                {ceo.email}
-              </a>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* DIRECTORS */}
       <section className="py-24 bg-white">
+
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold">Meet Our Directors</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
           {directors.map((director, idx) => (
+
             <div key={idx} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+
               <div className="relative w-full aspect-[4/5]">
                 <Image src={director.image} alt={director.name} fill className="object-cover"/>
               </div>
 
               <div className="p-6 text-center">
+
                 <h3 className="text-2xl font-bold">{director.name}</h3>
                 <p className="text-gray-600 mb-3">{director.role}</p>
+
                 <a href={`mailto:${director.email}`} className="text-green-600 hover:text-green-800">
-                  {director.email}
+                  Email
                 </a>
+
               </div>
+
             </div>
+
           ))}
+
         </div>
+
       </section>
 
       {/* TEAM */}
       <section className="py-20 bg-gray-50">
+
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold">Our Team</h2>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+
           {teamMembers.map((member, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow hover:shadow-xl hover:-translate-y-2 transition overflow-hidden">
+
+            <div key={idx} className="bg-white rounded-xl shadow overflow-hidden">
+
               <div className="relative w-full aspect-[4/5]">
                 <Image src={member.image} alt={member.name} fill className="object-cover"/>
               </div>
 
               <div className="p-5 text-center">
+
                 <h3 className="font-semibold text-lg">{member.name}</h3>
                 <p className="text-gray-600 mb-2">{member.role}</p>
+
                 <a href={`mailto:${member.email}`} className="text-green-600 hover:text-green-800">
-                  {member.email}
+                  Email
                 </a>
+
               </div>
+
             </div>
+
           ))}
+
         </div>
+
       </section>
 
       {/* SUBSCRIBE */}
       <section className="py-20 bg-white">
+
         <div className="max-w-4xl mx-auto text-center">
+
           <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
 
+          <p className="text-gray-600 mb-6">
+            Subscribe to receive updates about our products and news.
+          </p>
+
           <form onSubmit={handleSubscribe} className="flex gap-4 justify-center">
+
             <input
               type="email"
               placeholder="Your Email"
@@ -291,12 +321,15 @@ export default function Home() {
             >
               {loading ? "Subscribing..." : "Subscribe"}
             </button>
+
           </form>
 
           {subscribeMessage && (
             <p className="text-green-600 mt-4">{subscribeMessage}</p>
           )}
+
         </div>
+
       </section>
 
     </div>
