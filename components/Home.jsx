@@ -4,45 +4,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Leaf, Award, Globe, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
 
   const features = [
-    {
-      icon: Leaf,
-      title: 'Premium Quality',
-      description: 'Highest quality chemical products sourced and supplied with care',
-    },
-    {
-      icon: Award,
-      title: 'Industry Certified',
-      description: 'All products meet international standards and certifications',
-    },
-    {
-      icon: Globe,
-      title: 'Global Delivery',
-      description: 'Serving clients worldwide including Pakistan, Turkey, Dubai, and beyond',
-    },
-    {
-      icon: Sparkles,
-      title: 'Exclusive Olive Oil',
-      description: 'Premium quality olive oil available exclusively for our valued clients',
-    },
+    { icon: Leaf, title: 'Premium Quality', description: 'Highest quality chemical products sourced and supplied with care' },
+    { icon: Award, title: 'Industry Certified', description: 'All products meet international standards and certifications' },
+    { icon: Globe, title: 'Global Delivery', description: 'Serving clients worldwide including Pakistan, Turkey, Dubai, and beyond' },
+    { icon: Sparkles, title: 'Exclusive Olive Oil', description: 'Premium quality olive oil available exclusively for our valued clients' },
   ];
 
   const testimonials = [
-    {
-      name: "Arslan",
-      message: "Vinkimya provided excellent service and high quality products."
-    },
-    {
-      name: "Zainab",
-      message: "Amazing experience working with Vinkimya. Their team is very professional."
-    },
-    {
-      name: "Awais",
-      message: "Reliable company with great communication and timely delivery."
-    }
+    { name: "Arslan", message: "Vinkimya provided excellent service and high quality products." },
+    { name: "Zainab", message: "Amazing experience working with Vinkimya. Their team is very professional." },
+    { name: "Awais", message: "Reliable company with great communication and timely delivery." }
   ];
 
   const ceo = {
@@ -53,24 +29,9 @@ export default function Home() {
   };
 
   const directors = [
-    {
-      name: "Aamna Khurram Ramay",
-      role: "Director",
-      image: "/Amna.png",
-      email: "aamna@vinkimya.com",
-    },
-    {
-      name: "Romesa Khurram Ramay",
-      role: "Director",
-      image: "/Romesa.png",
-      email: "romesa@vinkimya.com",
-    },
-    {
-      name: "Adil Sheryar Mufti",
-      role: "Director",
-      image: "/Adil.png",
-      email: "adil@vinkimya.com",
-    },
+    { name: "Aamna", role: "Director", image: "/aamna.jpeg", email: "aamna@vinkimya.com" },
+    { name: "Romesa", role: "Director", image: "/romesa.jpeg", email: "romesa@vinkimya.com" },
+    { name: "Ali", role: "Director", image: "/ali-director.jpeg", email: "ali@vinkimya.com" },
   ];
 
   const teamMembers = [
@@ -86,335 +47,175 @@ export default function Home() {
   const [yearsCount, setYearsCount] = useState(0);
 
   useEffect(() => {
-
-    const animate = (target, setter, duration) => {
-
+    const animate = (target, setter) => {
       let start = 0;
-      const increment = target / (duration / 20);
-
       const interval = setInterval(() => {
-
-        start += increment;
-
+        start += target / 50;
         if (start >= target) {
           setter(target);
           clearInterval(interval);
         } else {
           setter(Math.floor(start));
         }
-
       }, 20);
-
     };
 
-    animate(500, setProductsCount, 1000);
-    animate(50, setCountriesCount, 1000);
-    animate(20, setYearsCount, 1000);
-
+    animate(500, setProductsCount);
+    animate(50, setCountriesCount);
+    animate(20, setYearsCount);
   }, []);
 
+  // SUBSCRIBE STATE
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        { subscriber_email: email },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+
+      setMessage("Subscribed successfully!");
+      setEmail('');
+
+    } catch (error) {
+      setMessage("Something went wrong.");
+    }
+
+    setLoading(false);
+    setTimeout(() => setMessage(''), 4000);
+  };
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen">
 
       {/* HERO */}
+      <section className="relative h-[700px] flex items-center justify-center text-white text-center">
+        <Image src="/Image.jpg" alt="Hero" fill className="object-cover"/>
+        <div className="absolute inset-0 bg-black/50"></div>
 
-      <section className="relative h-[700px] flex items-center justify-center text-center text-white overflow-hidden">
+        <div className="relative z-10">
+          <h1 className="text-6xl font-bold mb-6">Premium Chemical Solutions</h1>
+          <p className="mb-8">Leading chemical company providing premium products globally</p>
 
-        <Image
-          src="/Image.jpg"
-          alt="Hero"
-          fill
-          className="object-cover"
-          priority
-        />
-
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        <div className="relative z-10 max-w-3xl">
-
-          <h1 className="text-6xl font-bold mb-6">
-            Premium Chemical Solutions
-          </h1>
-
-          <p className="text-xl mb-10">
-            Leading chemical company providing premium products and exclusive solutions to global clients
-          </p>
-
-          <div className="flex gap-4 justify-center">
-
-            <Link
-              href="/products"
-              className="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 hover:scale-105 transition flex items-center"
-            >
-              Explore Products
-              <ChevronRight size={20} className="ml-2"/>
-            </Link>
-
-            <Link
-              href="/about"
-              className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition"
-            >
-              Learn More
-            </Link>
-
-          </div>
-
+          <Link href="/products" className="bg-white text-green-600 px-6 py-3 rounded-lg font-bold">
+            Explore Products
+          </Link>
         </div>
-
       </section>
-
 
       {/* FEATURES */}
+      <section className="py-20 text-center">
+        <h2 className="text-4xl font-bold mb-10">Why Choose Vinkimya?</h2>
 
-      <section className="py-20 bg-white">
-
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">Why Choose VinKimya?</h2>
+        <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {features.map((f,i)=>(
+            <div key={i} className="p-6 border rounded-xl hover:shadow-lg transition">
+              <f.icon className="mx-auto mb-4 text-green-600"/>
+              <h3 className="font-bold">{f.title}</h3>
+              <p className="text-gray-600">{f.description}</p>
+            </div>
+          ))}
         </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-
-          {features.map((feature,index)=>{
-
-            const Icon = feature.icon;
-
-            return(
-
-              <div
-                key={index}
-                className="p-8 border rounded-xl hover:border-green-500 hover:shadow-xl hover:-translate-y-2 transition"
-              >
-
-                <div className="mb-4 p-3 bg-green-100 rounded-lg inline-block">
-                  <Icon size={24} className="text-green-600"/>
-                </div>
-
-                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-
-              </div>
-
-            )
-
-          })}
-
-        </div>
-
       </section>
-
 
       {/* STATS */}
-
-      <section className="py-20 bg-gray-50">
-
-        <div className="grid md:grid-cols-3 text-center gap-8 max-w-7xl mx-auto">
-
-          <div>
-            <div className="text-5xl font-bold text-green-600">{productsCount}+</div>
-            <p className="text-gray-600">Premium Products</p>
-          </div>
-
-          <div>
-            <div className="text-5xl font-bold text-green-600">{countriesCount}+</div>
-            <p className="text-gray-600">Countries Served</p>
-          </div>
-
-          <div>
-            <div className="text-5xl font-bold text-green-600">{yearsCount}+</div>
-            <p className="text-gray-600">Years Experience</p>
-          </div>
-
+      <section className="py-20 bg-gray-50 text-center">
+        <div className="grid md:grid-cols-3">
+          <div><h1 className="text-5xl text-green-600">{productsCount}+</h1><p>Products</p></div>
+          <div><h1 className="text-5xl text-green-600">{countriesCount}+</h1><p>Countries</p></div>
+          <div><h1 className="text-5xl text-green-600">{yearsCount}+</h1><p>Years</p></div>
         </div>
-
       </section>
 
+      {/* REVIEWS */}
+      <section className="py-20 text-center">
+        <h2 className="text-4xl font-bold mb-10">Client Reviews</h2>
 
-      {/* CLIENT REVIEWS */}
-
-      <section className="py-20 bg-white">
-
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">What Our Clients Say</h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-          {testimonials.map((review,idx)=>(
-
-            <div
-              key={idx}
-              className="bg-gray-50 rounded-2xl shadow p-8 hover:shadow-xl transition"
-            >
-
-              <p className="text-gray-700 italic mb-6">
-                "{review.message}"
-              </p>
-
-              <h4 className="font-bold text-green-600">
-                {review.name}
-              </h4>
-
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {testimonials.map((t,i)=>(
+            <div key={i} className="p-6 bg-gray-100 rounded-xl">
+              <p className="italic mb-4">"{t.message}"</p>
+              <h4 className="font-bold text-green-600">{t.name}</h4>
             </div>
-
           ))}
-
         </div>
-
       </section>
-
 
       {/* CEO */}
-
-      <section className="py-24 bg-gray-50">
-
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">Chief Executive Officer</h2>
-        </div>
+      <section className="py-20 text-center bg-gray-50">
+        <h2 className="text-4xl font-bold mb-10">CEO</h2>
 
         <div className="flex justify-center">
-
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-[350px]">
-
-            <div className="relative w-full aspect-[4/5]">
-
-              <Image
-                src={ceo.image}
-                alt={ceo.name}
-                fill
-                className="object-cover"
-              />
-
+          <div className="w-[280px] bg-white shadow rounded-xl overflow-hidden">
+            <Image src={ceo.image} alt={ceo.name} width={300} height={350}/>
+            <div className="p-4">
+              <h3 className="font-bold">{ceo.name}</h3>
+              <p>{ceo.role}</p>
             </div>
-
-            <div className="p-6 text-center">
-
-              <h3 className="text-2xl font-bold">{ceo.name}</h3>
-              <p className="text-gray-600 mb-3">{ceo.role}</p>
-
-              <a
-                href={`mailto:${ceo.email}`}
-                className="text-green-600"
-              >
-                Email
-              </a>
-
-            </div>
-
           </div>
-
         </div>
-
       </section>
 
+      {/* DIRECTORS (FIXED SIZE) */}
+      <section className="py-20 text-center">
+        <h2 className="text-4xl font-bold mb-10">Directors</h2>
 
-      {/* DIRECTORS */}
-
-      <section className="py-24 bg-white">
-
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">Board of Directors</h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-
-          {directors.map((director,idx)=>(
-
-            <div key={idx} className="bg-white rounded-2xl shadow-xl overflow-hidden">
-
-              <div className="relative w-full aspect-[4/5]">
-
-                <Image
-                  src={director.image}
-                  alt={director.name}
-                  fill
-                  className="object-cover"
-                />
-
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {directors.map((d,i)=>(
+            <div key={i} className="w-[260px] mx-auto bg-white shadow rounded-xl overflow-hidden">
+              <Image src={d.image} alt={d.name} width={260} height={300}/>
+              <div className="p-4">
+                <h3 className="font-bold">{d.name}</h3>
+                <p>{d.role}</p>
               </div>
-
-              <div className="p-6 text-center">
-
-                <h3 className="text-2xl font-bold">{director.name}</h3>
-                <p className="text-gray-600 mb-3">{director.role}</p>
-
-                <a href={`mailto:${director.email}`} className="text-green-600">
-                  Email
-                </a>
-
-              </div>
-
             </div>
-
           ))}
-
         </div>
-
       </section>
-
 
       {/* TEAM */}
+      <section className="py-20 bg-gray-50 text-center">
+        <h2 className="text-4xl font-bold mb-10">Team</h2>
 
-      <section className="py-20 bg-gray-50">
-
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">Our Team</h2>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
-
-          {teamMembers.map((member,idx)=>(
-
-            <div key={idx} className="bg-white rounded-xl shadow overflow-hidden">
-
-              <div className="relative w-full aspect-[4/5]">
-
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                />
-
-              </div>
-
-              <div className="p-5 text-center">
-
-                <h3 className="font-semibold text-lg">{member.name}</h3>
-                <p className="text-gray-600 mb-2">{member.role}</p>
-
-                <a
-                  href={`mailto:${member.email}`}
-                  className="text-green-600"
-                >
-                  Email
-                </a>
-
-              </div>
-
+        <div className="grid md:grid-cols-5 gap-4 max-w-6xl mx-auto">
+          {teamMembers.map((m,i)=>(
+            <div key={i} className="bg-white p-3 rounded-xl shadow">
+              <Image src={m.image} alt={m.name} width={200} height={250}/>
+              <h4 className="font-semibold">{m.name}</h4>
+              <p className="text-sm">{m.role}</p>
             </div>
-
           ))}
-
         </div>
-
       </section>
 
+      {/* SUBSCRIBE */}
+      <section className="py-20 text-center">
+        <h2 className="text-3xl font-bold mb-4">Subscribe</h2>
 
-      {/* CTA */}
+        <form onSubmit={handleSubscribe} className="flex justify-center gap-3">
+          <input
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}
+            className="border px-4 py-2 rounded"
+          />
+          <button className="bg-green-600 text-white px-6 py-2 rounded">
+            {loading ? "..." : "Subscribe"}
+          </button>
+        </form>
 
-      <section className="py-20 bg-green-600 text-white text-center">
-
-        <h2 className="text-4xl font-bold mb-6">
-          Ready to Work With Us?
-        </h2>
-
-        <Link
-          href="/contact"
-          className="bg-white text-green-600 px-8 py-3 rounded-lg font-bold"
-        >
-          Contact Us
-        </Link>
-
+        {message && <p className="mt-4 text-green-600">{message}</p>}
       </section>
 
     </div>
