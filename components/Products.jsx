@@ -162,16 +162,16 @@ const products = [
       {
   name: "Products",
   products: [
-    { name: "ANTITACK TP 130", image: "/ProductImages/ANTITACK_TP_130.png", tds: "/tds/Rubber Additives/Antitack TP 130.pdf" },
-    { name: "ANTITACK TP 131", image: "/ProductImages/ANTITACK_TP_131.png", tds: "/tds/Rubber Additives/Antitack TP 131.pdf" },
-    { name: "ANTITACK TP 133-MG", image: "/ProductImages/ANTITACK_TP_133_MG.png", tds: "/tds/Rubber Additives/Antitack TP 133 - MG.pdf" },
+    { name: "ANTITACK TP 130", image: "/ProductImages/Antitack_TP_130.png", tds: "/tds/Rubber Additives/Antitack TP 130.pdf" },
+    { name: "ANTITACK TP 131", image: "/ProductImages/Antitack_TP_131.png", tds: "/tds/Rubber Additives/Antitack TP 131.pdf" },
+    { name: "ANTITACK TP 133-MG", image: "/ProductImages/Antitack_TP_133_MG.png", tds: "/tds/Rubber Additives/Antitack TP 133 - MG.pdf" },
     { name: "HYGROSCOPE GR", image: "/ProductImages/HYGROSCOPE_GR.png", tds: "/tds/Rubber Additives/HYGROSCOPE GR.pdf" },
     { name: "HYGROSCOPE PW", image: "/ProductImages/HYGROSCOPE_PW.png", tds: "/tds/Rubber Additives/HYGROSCOPE PW.pdf" },
     { name: "HYGROSCOPE P CaO", image: "/ProductImages/HYGROSCOPE_P.png", tds: "/tds/Rubber Additives/HYROSCOPE P  CaO .pdf" },
-    { name: "KRESBY TP 316 FL", image: "/ProductImages/KRESBY_TP_316_FL.png", tds: "/tds/Rubber Additives/Kresby TP 316 FL .pdf" },
-    { name: "KRESBY TP 342", image: "/ProductImages/KRESBY_TP_342.png", tds: "/tds/Rubber Additives/Kresby TP 342.pdf" },
+    { name: "KRESBY TP 316 FL", image: "/ProductImages/Kresby_TP_316_FL.png", tds: "/tds/Rubber Additives/Kresby TP 316 FL .pdf" },
+    { name: "KRESBY TP 342", image: "/ProductImages/Kresby-TP_342.png", tds: "/tds/Rubber Additives/Kresby TP 342.pdf" },
     { name: "KRESBYGRAN S-80", image: "/ProductImages/KRESBYGRAN_S_80.png", tds: "/tds/Rubber Additives/KRESBYGRAN S-80.pdf" },
-    { name: "NOVAREZ TP 35", image: "/ProductImages/NOVAREZ_TP_35.png", tds: "/tds/Rubber Additives/Novarez TP 35.pdf" },
+    { name: "NOVAREZ TP 35", image: "/ProductImages/Novarez_TP_35.png", tds: "/tds/Rubber Additives/Novarez TP 35.pdf" },
   ],
 }
     ],
@@ -265,7 +265,7 @@ const products = [
       {
         name: "Blue C.I No 154",
         products: [
-          { name: "BETA-BLUE-154-RF604", image: "/products/BETA-BLUE-154-RF604.jpg", tds: "/tds/Pigments Organic/BLUE C.I NO 15 4/BETA-BLUE-154-RF604.pdf" },
+          { name: "BETA-BLUE-154-RF604", image: "/ProductImages/15 4.png", tds: "/tds/Pigments Organic/BLUE C.I NO 15 4/BETA-BLUE-154-RF604.pdf" },
         ],
       },
     ],

@@ -42,7 +42,7 @@ export default function Home() {
     {
       name: "Aamna Khurram Ramay",
       role: "Director",
-      image: "/Aamna.png",
+      image: "/Amna.png",
       email: "aamna@vinkimya.com",
     },
     {
@@ -239,12 +239,7 @@ export default function Home() {
             <div className="p-6">
               <h3 className="text-2xl font-bold">{ceo.name}</h3>
               <p className="text-gray-600 mb-2">{ceo.role}</p>
-              <a
-  href={`mailto:${ceo.email}?subject=Inquiry from Website&body=Hello, I want to contact you.`}
-  className="text-green-600 hover:text-green-800"
->
-  {ceo.email}
-</a>
+              <a href={`mailto:${ceo.email}`} className="text-green-600 hover:text-green-800" > Email </a>
             </div>
           </div>
         </div>
@@ -266,13 +261,7 @@ export default function Home() {
               <div className="p-6 text-center">
                 <h3 className="text-2xl font-bold">{director.name}</h3>
                 <p className="text-gray-600 mb-2">{director.role}</p>
-                <a
-                  href={`mailto:${director.email}?subject=Inquiry from Website&body=Hello, I want to contact you.`}
-                  className="text-green-600 hover:text-green-800"
-                >
-                  {director.email}
-                </a>
-              </div>
+                <a href={`mailto:${director.email}`} className="text-green-600 hover:text-green-800" > Email </a>              </div>
             </div>
           ))}
         </div>
@@ -294,45 +283,22 @@ export default function Home() {
               <div className="p-5 text-center">
                 <h3 className="font-semibold text-lg">{member.name}</h3>
                 <p className="text-gray-600 mb-2">{member.role}</p>
-                <a href={`mailto:${member.email}`} className="text-green-600 hover:text-green-800">
-  {member.email}
-</a>
+                <a href={`mailto:${member.email}`} className="text-green-600 hover:text-green-800" > Email </a>
+
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* SUBSCRIBE */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-
-          <form onSubmit={handleSubscribe} className="flex gap-4 justify-center">
-            <input
-              type="email"
-              placeholder="Your Email"
-              value={email}
-              onChange={(e)=>setEmail(e.target.value)}
-              className="border px-4 py-3 rounded-lg w-80"
-              required
-            />
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition"
-            >
-              {loading ? "Subscribing..." : "Subscribe"}
-            </button>
-          </form>
-
-          {subscribeMessage && (
-            <p className="text-green-600 mt-4">{subscribeMessage}</p>
-          )}
-        </div>
-      </section>
-
-    </div>
-  );
+      {/* SUBSCRIBE */} <section className="py-20 bg-white"> 
+        <div className="max-w-4xl mx-auto text-center"> 
+          <h2 className="text-3xl font-bold mb-4"> Stay Updated </h2> 
+          <p className="text-gray-600 mb-6"> Subscribe to receive updates about our products and news. </p>
+           <form onSubmit={handleSubscribe} className="flex gap-4 justify-center"> <input type="email" placeholder="Your Email" value={email} onChange={(e)=>setEmail(e.target.value)} className="border px-4 py-3 rounded-lg w-80" required /> 
+           <button type="submit" disabled={loading} className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition" > 
+            {loading ? "Subscribing..." : "Subscribe"} </button> </form> {subscribeMessage && ( <p className="text-green-600 mt-4">{subscribeMessage}</p> )} </div>
+             </section>
+              </div> 
+    ); 
 }
