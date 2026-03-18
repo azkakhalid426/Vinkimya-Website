@@ -33,7 +33,7 @@ export default function Home() {
 
   const ceo = {
     name: "Khurram Mahmood Ramay",
-    role: "CEO & Director",
+    role: "Founder & CEO",
     image: "/CEO image.png",
     email: "ramay@vinkimya.com",
   };
