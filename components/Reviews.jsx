@@ -7,35 +7,30 @@ export default function Reviews() {
   const reviews = [
     {
       name: 'Ahmed Hassan',
-      company: 'Saudi Industrial Corp',
       rating: 5,
       review:
         'Excellent quality products and outstanding customer service. Vinkimya has been our trusted partner for 5 years.',
     },
     {
       name: 'Fatma Yilmaz',
-      company: 'Turkish Manufacturing Ltd',
       rating: 5,
       review:
         'Professional team, high-quality chemicals, and reliable delivery. Highly recommended!',
     },
     {
       name: 'Muhammad Ali',
-      company: 'Karachi Enterprises',
       rating: 5,
       review:
         'Best chemical supplier in the region. Their products meet international standards consistently.',
     },
     {
       name: 'Usman',
-      company: 'Servis Group',
       rating: 5,
       review:
         'Reliable supplier with great product consistency and excellent support team.',
     },
     {
       name: 'Zafar',
-      company: 'Alpha Chemical',
       rating: 5,
       review:
         'We have worked with Vinkimya for years. Always professional and dependable.',
