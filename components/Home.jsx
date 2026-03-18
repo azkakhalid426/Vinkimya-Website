@@ -259,7 +259,7 @@ export default function Home() {
           <h2 className="text-4xl font-bold">Meet Our Directors</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 max-w-7xl mx-auto">
           {directors.map((director, idx) => (
             <div key={idx} className="bg-white rounded-2xl shadow-xl overflow-hidden">
               <div className="relative w-full aspect-[4/5]">
