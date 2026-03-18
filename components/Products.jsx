@@ -379,387 +379,190 @@ const products = [
 
 export default function ProductsPage(){
 
-
-
-const [activeCategory,setActiveCategory] = useState(products[0])
-
-const [activeType,setActiveType] = useState(products[0].types[0])
-
-const [activeGroup,setActiveGroup] = useState(null)
-
-const [search,setSearch] = useState("")
-
-
+const [activeCategory,setActiveCategory] = useState(products[0]);
+const [activeType,setActiveType] = useState(products[0].types[0]);
+const [activeGroup,setActiveGroup] = useState(null);
+const [search,setSearch] = useState("");
+const [sidebarOpen, setSidebarOpen] = useState(false); // ⭐ hamburger state
 
 useEffect(()=>{
-
-if(activeType.groups){
-
-setActiveGroup(activeType.groups[0])
-
-}else{
-
-setActiveGroup(null)
-
-}
-
-},[activeType])
-
-
+  if(activeType.groups){
+    setActiveGroup(activeType.groups[0]);
+  }else{
+    setActiveGroup(null);
+  }
+},[activeType]);
 
 const displayProducts =
-
-activeGroup?.products ||
-
-activeType.products ||
-
-[]
-
-
+  activeGroup?.products ||
+  activeType.products ||
+  [];
 
 const filteredProducts = displayProducts.filter(p =>
-
-p.name.toLowerCase().includes(search.toLowerCase())
-
-)
-
-
+  p.name.toLowerCase().includes(search.toLowerCase())
+);
 
 return(
-
-
-
 <div className="min-h-screen bg-gray-50">
 
+  {/* ✅ HAMBURGER BUTTON (mobile only) */}
+  <div className="md:hidden p-4">
+    <button
+      onClick={() => setSidebarOpen(true)}
+      className="text-2xl"
+    >
+      ☰
+    </button>
+  </div>
 
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row">
 
-<div className="max-w-7xl mx-auto flex">
+    {/* ✅ SIDEBAR */}
+    <div
+      className={`fixed md:static top-0 left-0 h-full w-64 bg-white border-r p-6 z-50 transform transition-transform duration-300
+      ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+    >
 
+      {/* Close button */}
+      <div className="md:hidden mb-4">
+        <button onClick={() => setSidebarOpen(false)}>✕</button>
+      </div>
 
+      <h2 className="font-bold text-lg mb-6">
+        Product Categories
+      </h2>
 
-{/* SIDEBAR */}
+      <div className="space-y-2">
+        {products.map(cat=>(
+          <button
+            key={cat.name}
+            onClick={()=>{
+              setActiveCategory(cat);
+              setActiveType(cat.types[0]);
+              setSidebarOpen(false); // auto close
+            }}
+            className={`w-full text-left px-4 py-2 rounded-lg text-sm font-medium transition
+            ${activeCategory.name===cat.name
+              ? "bg-green-600 text-white"
+              : "hover:bg-gray-100"
+            }`}
+          >
+            {cat.name}
+          </button>
+        ))}
+      </div>
+    </div>
 
+    {/* ✅ OVERLAY */}
+    {sidebarOpen && (
+      <div
+        className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
+        onClick={() => setSidebarOpen(false)}
+      />
+    )}
 
+    {/* ✅ MAIN CONTENT */}
+    <div className="flex-1 p-6 md:p-10">
 
-<div className="w-64 bg-white border-r p-6">
+      {/* Breadcrumb */}
+      <div className="text-sm text-gray-500 mb-6">
+        {activeCategory.name} / {activeType.name}
+        {activeGroup && ` / ${activeGroup.name}`}
+      </div>
 
+      {/* Search */}
+      <div className="relative max-w-md mb-8">
+        <Search className="absolute left-3 top-3 text-gray-400"/>
+        <input
+          type="text"
+          placeholder="Search product..."
+          value={search}
+          onChange={(e)=>setSearch(e.target.value)}
+          className="w-full pl-10 pr-4 py-2 border rounded-lg"
+        />
+      </div>
 
+      {/* Type buttons */}
+      <div className="flex flex-wrap gap-3 mb-6">
+        {activeCategory.types.map(type=>(
+          <button
+            key={type.name}
+            onClick={()=>setActiveType(type)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition
+            ${activeType.name===type.name
+              ? "bg-green-600 text-white"
+              : "bg-white border hover:bg-gray-100"
+            }`}
+          >
+            {type.name}
+          </button>
+        ))}
+      </div>
 
-<h2 className="font-bold text-lg mb-6">
+      {/* Group buttons */}
+      {activeType.groups && (
+        <div className="flex flex-wrap gap-3 mb-8">
+          {activeType.groups.map(group=>(
+            <button
+              key={group.name}
+              onClick={()=>setActiveGroup(group)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition
+              ${activeGroup?.name===group.name
+                ? "bg-green-100 text-green-700"
+                : "bg-white border hover:bg-gray-100"
+              }`}
+            >
+              {group.name}
+            </button>
+          ))}
+        </div>
+      )}
 
-Product Categories
+      {/* Products */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredProducts.map((product,index)=>(
+          <div
+            key={index}
+            className="bg-white rounded-xl shadow hover:shadow-lg transition p-6"
+          >
+            <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-cover"
+              />
+            </div>
 
-</h2>
+            <h3 className="font-semibold text-lg mb-4">
+              {product.name}
+            </h3>
 
+            <div className="flex gap-2">
+              <Link
+                href="/contact"
+                className="flex-1 bg-green-600 text-white text-center py-2 rounded-md text-sm hover:bg-green-700"
+              >
+                Get Quote
+              </Link>
 
+              <a
+                href={product.tds}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 border border-green-600 text-green-600 rounded-md text-sm hover:bg-green-100"
+              >
+                <Download size={16} />
+                TDS
+              </a>
+            </div>
 
-<div className="space-y-2">
+          </div>
+        ))}
+      </div>
 
-
-
-{products.map(cat=>(
-
-<button
-
-key={cat.name}
-
-onClick={()=>{
-
-setActiveCategory(cat)
-
-setActiveType(cat.types[0])
-
-}}
-
-className={`w-full text-left px-4 py-2 rounded-lg text-sm font-medium transition
-
-${activeCategory.name===cat.name
-
-? "bg-green-600 text-white"
-
-: "hover:bg-gray-100"
-
-}`}
-
->
-
-{cat.name}
-
-</button>
-
-))}
-
-
-
+    </div>
+  </div>
 </div>
-
-
-
-</div>
-
-
-
-
-
-{/* MAIN AREA */}
-
-
-
-<div className="flex-1 p-10">
-
-
-
-{/* BREADCRUMB */}
-
-
-
-<div className="text-sm text-gray-500 mb-6">
-
-
-
-{activeCategory.name} / {activeType.name}
-
-{activeGroup && ` / ${activeGroup.name}`}
-
-
-
-</div>
-
-
-
-
-
-{/* SEARCH */}
-
-
-
-<div className="relative max-w-md mb-8">
-
-
-
-<Search className="absolute left-3 top-3 text-gray-400"/>
-
-
-
-<input
-
-type="text"
-
-placeholder="Search product..."
-
-value={search}
-
-onChange={(e)=>setSearch(e.target.value)}
-
-className="w-full pl-10 pr-4 py-2 border rounded-lg"
-
-/>
-
-
-
-</div>
-
-
-
-
-
-{/* TYPE NAVIGATION */}
-
-
-
-<div className="flex flex-wrap gap-3 mb-6">
-
-
-
-{activeCategory.types.map(type=>(
-
-<button
-
-key={type.name}
-
-onClick={()=>setActiveType(type)}
-
-className={`px-4 py-2 rounded-full text-sm font-medium transition
-
-${activeType.name===type.name
-
-? "bg-green-600 text-white"
-
-: "bg-white border hover:bg-gray-100"
-
-}`}
-
->
-
-{type.name}
-
-</button>
-
-))}
-
-
-
-</div>
-
-
-
-
-
-{/* GROUP NAVIGATION */}
-
-
-
-{activeType.groups && (
-
-
-
-<div className="flex flex-wrap gap-3 mb-8">
-
-
-
-{activeType.groups.map(group=>(
-
-<button
-
-key={group.name}
-
-onClick={()=>setActiveGroup(group)}
-
-className={`px-4 py-2 rounded-full text-sm font-medium transition
-
-${activeGroup?.name===group.name
-
-? "bg-green-100 text-green-700"
-
-: "bg-white border hover:bg-gray-100"
-
-}`}
-
->
-
-{group.name}
-
-</button>
-
-))}
-
-
-
-</div>
-
-
-
-)}
-
-
-
-
-
-{/* PRODUCT GRID */}
-
-
-
-<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-
-
-{filteredProducts.map((product,index)=>(
-
-
-
-<div
-
-key={index}
-
-className="bg-white rounded-xl shadow hover:shadow-lg transition p-6"
-
->
-
-
-
-<div className="relative h-48 mb-4 rounded-lg overflow-hidden">
-
-
-
-<Image
-  src={product.image}
-  alt={product.name}
-  fill
-  className="object-cover"
-/>
-
-
-</div>
-
-
-
-<h3 className="font-semibold text-lg mb-4">
-
-{product.name}
-
-</h3>
-
-
-
-<div className="flex gap-2">
-
-
-
-<Link
-
-href="/contact"
-
-className="flex-1 bg-green-600 text-white text-center py-2 rounded-md text-sm hover:bg-green-700"
-
->
-
-Get Quote
-
-</Link>
-
-
-
-<a
-  href={product.tds}   // <-- this points to the PDF path
-  target="_blank"       // open in a new tab
-  rel="noopener noreferrer"
-  className="flex items-center gap-2 px-3 border border-green-600 text-green-600 rounded-md text-sm hover:bg-green-100"
->
-  <Download size={16} />
-  TDS
-</a>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-))}
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-)
-
+);
 }
-
