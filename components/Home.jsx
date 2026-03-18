@@ -39,6 +39,12 @@ export default function Home() {
   };
 
   const directors = [
+     {
+      name: "Khurram Mahmood Ramay",
+      role: "Director",
+      image: "/CEO image.png",
+      email: "ramay@vinkimya.com",
+    },
     {
       name: "Aamna Khurram Ramay",
       role: "Director",
@@ -51,11 +57,13 @@ export default function Home() {
       image: "/Romesa.png",
       email: "romesa@vinkimya.com",
     },
+    
+   
     {
-      name: "Adil Shehyrar",
+      name: "Adil Sheryar Mufti ",
       role: "Director",
       image: "/Adil.png",
-      email: "Adil@vinkimya.com",
+      email: "Adil.mufti@vinkimya.com",
     },
   ];
 
