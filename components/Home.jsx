@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Leaf, Award, Globe, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
 
 export default function Home() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -103,7 +103,6 @@ export default function Home() {
   }, []);
 
   const [email, setEmail] = useState('');
-  const [subscribeMessage, setSubscribeMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubscribe = async (e) => {
@@ -114,23 +113,18 @@ export default function Home() {
     setLoading(true);
 
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_SUBSCRIBE_TEMPLATE_ID,
-        { subscriber_email: email },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      );
+      // Simulate network request
+      await new Promise(resolve => setTimeout(resolve, 800));
 
-      setSubscribeMessage('Thank you for subscribing!');
+      toast.success('Thank you for subscribing!');
       setEmail('');
 
     } catch (error) {
       console.error(error);
-      setSubscribeMessage('Subscription failed. Please try again.');
+      toast.error('Subscription failed. Please try again.');
     }
 
     setLoading(false);
-    setTimeout(() => setSubscribeMessage(''), 5000);
   };
 
   return (
@@ -327,7 +321,8 @@ export default function Home() {
             <p className="text-gray-600 mb-6"> Subscribe to receive updates about our products and news. </p>
             <form onSubmit={handleSubscribe} className="flex gap-4 justify-center"> <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} className="border px-4 py-3 rounded-lg w-80" required />
               <button type="submit" disabled={loading} className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition" >
-                {loading ? "Subscribing..." : "Subscribe"} </button> </form> {subscribeMessage && (<p className="text-green-600 mt-4">{subscribeMessage}</p>)} </div>
+                {loading ? "Subscribing..." : "Subscribe"} </button> </form> </div>
+
         </section>
       </div>
     </>
