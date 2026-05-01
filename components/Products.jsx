@@ -117,27 +117,27 @@ const products = [
     name: "Metallic Stearates",
     types: [
       {
-  name: "Products",
-  products: [
-    { name: "CA-30 CALCIUM STEARATE", image: "/ProductImages/CA_30_CALCIUM_STEARATE.png", tds: "/tds/Metallic Sterates/CA-30 CALCIUM STEARATE.pdf" },
+        name: "Products",
+        products: [
+          { name: "CA-30 CALCIUM STEARATE", image: "/ProductImages/CA_30_CALCIUM_STEARATE.png", tds: "/tds/Metallic Sterates/CA-30 CALCIUM STEARATE.pdf" },
 
-    { name: "MG-40 MAGNESIUM STEARATE", image: "/ProductImages/MG_40_MAGNESIUM_STEARATE.png", tds: "/tds/Metallic Sterates/MG-40 MAGNESIUM STEARATE.pdf" },
+          { name: "MG-40 MAGNESIUM STEARATE", image: "/ProductImages/MG_40_MAGNESIUM_STEARATE.png", tds: "/tds/Metallic Sterates/MG-40 MAGNESIUM STEARATE.pdf" },
 
-    { name: "TP-28 LEAD STEARATE", image: "/ProductImages/TP_28_LEAD_STEARATE.png", tds: "/tds/Metallic Sterates/TP-28 LEAD STEARATE.pdf" },
+          { name: "TP-28 LEAD STEARATE", image: "/ProductImages/TP_28_LEAD_STEARATE.png", tds: "/tds/Metallic Sterates/TP-28 LEAD STEARATE.pdf" },
 
-    { name: "ZN-55 ZINC STEARATE", image: "/ProductImages/ZN_55_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/Zn-55 Zinc Stearate.pdf" },
+          { name: "ZN-55 ZINC STEARATE", image: "/ProductImages/ZN_55_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/Zn-55 Zinc Stearate.pdf" },
 
-    { name: "ZN-55B ZINC STEARATE", image: "/ProductImages/ZN_55B_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/Zn-55B Zin Stearate.pdf" },
+          { name: "ZN-55B ZINC STEARATE", image: "/ProductImages/ZN_55B_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/Zn-55B Zin Stearate.pdf" },
 
-    { name: "ZN-485 ZINC STEARATE", image: "/ProductImages/ZN_485_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/Zn-485 ZInc Stearate.pdf" },
+          { name: "ZN-485 ZINC STEARATE", image: "/ProductImages/ZN_485_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/Zn-485 ZInc Stearate.pdf" },
 
-    { name: "ZN-7585", image: "/ProductImages/ZN_7585_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/ZN-7585.pdf" },
+          { name: "ZN-7585", image: "/ProductImages/ZN_7585_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/ZN-7585.pdf" },
 
-    { name: "ZN-8595", image: "/ProductImages/ZN_8595_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/Zn-8595.pdf" },
+          { name: "ZN-8595", image: "/ProductImages/ZN_8595_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/Zn-8595.pdf" },
 
-    { name: "ZN-9595", image: "/ProductImages/ZN_9595_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/ZN-9595.pdf" },
-  ],
-}
+          { name: "ZN-9595", image: "/ProductImages/ZN_9595_ZINC_STEARATE.png", tds: "/tds/Metallic Sterates/ZN-9595.pdf" },
+        ],
+      }
     ],
   },
 
@@ -160,20 +160,20 @@ const products = [
     name: "Rubber Additives",
     types: [
       {
-  name: "Products",
-  products: [
-    { name: "ANTITACK TP 130", image: "/ProductImages/Antitack_TP_130.png", tds: "/tds/Rubber Additives/Antitack TP 130.pdf" },
-    { name: "ANTITACK TP 131", image: "/ProductImages/Antitack_TP_131.png", tds: "/tds/Rubber Additives/Antitack TP 131.pdf" },
-    { name: "ANTITACK TP 133-MG", image: "/ProductImages/Antitack_TP_133_MG.png", tds: "/tds/Rubber Additives/Antitack TP 133 - MG.pdf" },
-    { name: "HYGROSCOPE GR", image: "/ProductImages/HYGROSCOPE_GR.png", tds: "/tds/Rubber Additives/HYGROSCOPE GR.pdf" },
-    { name: "HYGROSCOPE PW", image: "/ProductImages/HYGROSCOPE_PW.png", tds: "/tds/Rubber Additives/HYGROSCOPE PW.pdf" },
-    { name: "HYGROSCOPE P CaO", image: "/ProductImages/HYGROSCOPE_P.png", tds: "/tds/Rubber Additives/HYROSCOPE P  CaO .pdf" },
-    { name: "KRESBY TP 316 FL", image: "/ProductImages/Kresby_TP_316_FL.png", tds: "/tds/Rubber Additives/Kresby TP 316 FL .pdf" },
-    { name: "KRESBY TP 342", image: "/ProductImages/Kresby-TP_342.png", tds: "/tds/Rubber Additives/Kresby TP 342.pdf" },
-    { name: "KRESBYGRAN S-80", image: "/ProductImages/KRESBYGRAN_S_80.png", tds: "/tds/Rubber Additives/KRESBYGRAN S-80.pdf" },
-    { name: "NOVAREZ TP 35", image: "/ProductImages/Novarez_TP_35.png", tds: "/tds/Rubber Additives/Novarez TP 35.pdf" },
-  ],
-}
+        name: "Products",
+        products: [
+          { name: "ANTITACK TP 130", image: "/ProductImages/Antitack_TP_130.png", tds: "/tds/Rubber Additives/Antitack TP 130.pdf" },
+          { name: "ANTITACK TP 131", image: "/ProductImages/Antitack_TP_131.png", tds: "/tds/Rubber Additives/Antitack TP 131.pdf" },
+          { name: "ANTITACK TP 133-MG", image: "/ProductImages/Antitack_TP_133_MG.png", tds: "/tds/Rubber Additives/Antitack TP 133 - MG.pdf" },
+          { name: "HYGROSCOPE GR", image: "/ProductImages/HYGROSCOPE_GR.png", tds: "/tds/Rubber Additives/HYGROSCOPE GR.pdf" },
+          { name: "HYGROSCOPE PW", image: "/ProductImages/HYGROSCOPE_PW.png", tds: "/tds/Rubber Additives/HYGROSCOPE PW.pdf" },
+          { name: "HYGROSCOPE P CaO", image: "/ProductImages/HYGROSCOPE_P.png", tds: "/tds/Rubber Additives/HYROSCOPE P  CaO .pdf" },
+          { name: "KRESBY TP 316 FL", image: "/ProductImages/Kresby_TP_316_FL.png", tds: "/tds/Rubber Additives/Kresby TP 316 FL .pdf" },
+          { name: "KRESBY TP 342", image: "/ProductImages/Kresby-TP_342.png", tds: "/tds/Rubber Additives/Kresby TP 342.pdf" },
+          { name: "KRESBYGRAN S-80", image: "/ProductImages/KRESBYGRAN_S_80.png", tds: "/tds/Rubber Additives/KRESBYGRAN S-80.pdf" },
+          { name: "NOVAREZ TP 35", image: "/ProductImages/Novarez_TP_35.png", tds: "/tds/Rubber Additives/Novarez TP 35.pdf" },
+        ],
+      }
     ],
   },
 
@@ -236,7 +236,7 @@ const products = [
           { name: "GREEN-7-RF708", image: "/ProductImages/Green.png", tds: "/tds/Pigments Organic/GREEN C.I NO 7/GREEN-7-RF708.pdf" },
         ],
       },
-            {
+      {
         name: "Blue C.I No 150",
         products: [
           { name: "ALPHA-BLUE-150-RF600", image: "/ProductImages/15 0.png", tds: "/tds/Pigments Organic/BLUE C.I NO 15 0/ALPHA-BLUE-150-RF600.pdf" },
@@ -377,389 +377,411 @@ const products = [
   },
 ];
 
-export default function ProductsPage(){
+export default function ProductsPage() {
 
 
 
-const [activeCategory,setActiveCategory] = useState(products[0])
+  const [activeCategory, setActiveCategory] = useState(products[0])
 
-const [activeType,setActiveType] = useState(products[0].types[0])
+  const [activeType, setActiveType] = useState(products[0].types[0])
 
-const [activeGroup,setActiveGroup] = useState(null)
+  const [activeGroup, setActiveGroup] = useState(null)
 
-const [search,setSearch] = useState("")
+  const [search, setSearch] = useState("")
 
 
 
-useEffect(()=>{
+  useEffect(() => {
 
-if(activeType.groups){
+    if (activeType.groups) {
 
-setActiveGroup(activeType.groups[0])
+      setActiveGroup(activeType.groups[0])
 
-}else{
+    } else {
 
-setActiveGroup(null)
+      setActiveGroup(null)
+
+    }
+
+  }, [activeType])
+
+
+
+  const displayProducts =
+
+    activeGroup?.products ||
+
+    activeType.products ||
+
+    []
+
+
+
+  const filteredProducts = displayProducts.filter(p =>
+
+    p.name.toLowerCase().includes(search.toLowerCase())
+
+  )
+
+
+
+  return (
+
+
+
+    <div className="min-h-screen bg-gray-50">
+
+
+
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row">
+
+
+
+        {/* ======= DESKTOP SIDEBAR ======= */}
+
+        <div className="hidden md:block w-64 min-w-[256px] bg-white border-r p-6">
+
+          <h2 className="font-bold text-lg mb-6">
+
+            Product Categories
+
+          </h2>
+
+          <div className="flex flex-col space-y-2">
+
+            {products.map(cat => (
+
+              <button
+
+                key={cat.name}
+
+                onClick={() => {
+
+                  setActiveCategory(cat)
+
+                  setActiveType(cat.types[0])
+
+                }}
+
+                className={`w-full text-left px-4 py-2 rounded-lg text-sm font-medium transition
+
+${activeCategory.name === cat.name
+
+                    ? "bg-green-600 text-white"
+
+                    : "hover:bg-gray-100"
+
+                  }`}
+
+              >
+
+                {cat.name}
+
+              </button>
+
+            ))}
+
+          </div>
+
+        </div>
+
+
+
+
+
+        {/* ======= MAIN AREA ======= */}
+
+        <div className="flex-1 p-4 sm:p-6 md:p-10 w-full overflow-hidden">
+
+
+
+          {/* MOBILE CATEGORY DROPDOWN (ONLY VISIBLE ON MOBILE) */}
+
+          <div className="block md:hidden mb-6">
+
+            <label htmlFor="category-select" className="block text-sm font-semibold text-gray-700 mb-2">
+
+              Product Category
+
+            </label>
+
+            <select
+
+              id="category-select"
+
+              value={activeCategory.name}
+
+              onChange={(e) => {
+
+                const selectedCat = products.find(c => c.name === e.target.value);
+
+                if (selectedCat) {
+
+                  setActiveCategory(selectedCat);
+
+                  setActiveType(selectedCat.types[0]);
+
+                }
+
+              }}
+
+              className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+
+            >
+
+              {products.map(cat => (
+
+                <option key={cat.name} value={cat.name}>
+
+                  {cat.name}
+
+                </option>
+
+              ))}
+
+            </select>
+
+          </div>
+
+
+
+          {/* BREADCRUMB */}
+
+          <div className="text-sm text-gray-500 mb-6 flex flex-wrap gap-1">
+
+            <span>{activeCategory.name}</span>
+
+            <span>/</span>
+
+            <span>{activeType.name}</span>
+
+            {activeGroup && (
+
+              <>
+
+                <span>/</span>
+
+                <span>{activeGroup.name}</span>
+
+              </>
+
+            )}
+
+          </div>
+
+
+
+
+
+          {/* SEARCH */}
+
+          <div className="relative max-w-md mb-6 md:mb-8">
+
+            <Search className="absolute left-3 top-3 text-gray-400" />
+
+            <input
+
+              type="text"
+
+              placeholder="Search product..."
+
+              value={search}
+
+              onChange={(e) => setSearch(e.target.value)}
+
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+
+            />
+
+          </div>
+
+
+
+
+
+          {/* TYPE NAVIGATION */}
+
+          <div className="flex flex-wrap gap-2 md:gap-3 mb-6">
+
+            {activeCategory.types.map(type => (
+
+              <button
+
+                key={type.name}
+
+                onClick={() => setActiveType(type)}
+
+                className={`px-4 py-2 rounded-full text-sm font-medium transition
+
+${activeType.name === type.name
+
+                    ? "bg-green-600 text-white shadow-sm"
+
+                    : "bg-white border text-gray-700 hover:bg-gray-100"
+
+                  }`}
+
+              >
+
+                {type.name}
+
+              </button>
+
+            ))}
+
+          </div>
+
+
+
+
+
+          {/* GROUP NAVIGATION */}
+
+          {activeType.groups && (
+
+            <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
+
+              {activeType.groups.map(group => (
+
+                <button
+
+                  key={group.name}
+
+                  onClick={() => setActiveGroup(group)}
+
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition
+
+${activeGroup?.name === group.name
+
+                      ? "bg-green-100 text-green-800 border border-green-200"
+
+                      : "bg-white border text-gray-700 hover:bg-gray-100"
+
+                    }`}
+
+                >
+
+                  {group.name}
+
+                </button>
+
+              ))}
+
+            </div>
+
+          )}
+
+
+
+
+
+          {/* PRODUCT GRID */}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+            {filteredProducts.map((product, index) => (
+
+              <div
+
+                key={index}
+
+                className="bg-white rounded-xl shadow border border-gray-100 hover:shadow-lg transition p-4 md:p-6 flex flex-col"
+
+              >
+
+                <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden bg-gray-50 flex-shrink-0">
+
+                  <Image
+
+                    src={product.image}
+
+                    alt={product.name}
+
+                    fill
+
+                    className="object-contain p-2"
+
+                  />
+
+                </div>
+
+
+
+                <h3 className="font-semibold text-base md:text-lg mb-4 text-gray-900 flex-grow">
+
+                  {product.name}
+
+                </h3>
+
+
+
+                <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+
+                  <Link
+
+                    href="/contact"
+
+                    className="flex-1 bg-green-600 text-white text-center py-2.5 rounded-md text-sm font-medium hover:bg-green-700 transition"
+
+                  >
+
+                    Get Quote
+
+                  </Link>
+
+                  <a
+
+                    href={product.tds}
+
+                    target="_blank"
+
+                    rel="noopener noreferrer"
+
+                    className="flex-1 sm:flex-none flex justify-center items-center gap-2 px-4 py-2.5 border border-green-600 text-green-700 rounded-md text-sm font-medium hover:bg-green-50 transition"
+
+                  >
+
+                    <Download size={16} />
+
+                    TDS
+
+                  </a>
+
+                </div>
+
+              </div>
+
+            ))}
+
+            {filteredProducts.length === 0 && (
+
+              <div className="col-span-full text-center py-12 text-gray-500">
+
+                No products found matching "{search}"
+
+              </div>
+
+            )}
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  )
 
 }
 
-},[activeType])
 
-
-
-const displayProducts =
-
-activeGroup?.products ||
-
-activeType.products ||
-
-[]
-
-
-
-const filteredProducts = displayProducts.filter(p =>
-
-p.name.toLowerCase().includes(search.toLowerCase())
-
-)
-
-
-
-return(
-
-
-
-<div className="min-h-screen bg-gray-50">
-
-
-
-<div className="max-w-7xl mx-auto flex">
-
-
-
-{/* SIDEBAR */}
-
-
-
-<div className="w-64 bg-white border-r p-6">
-
-
-
-<h2 className="font-bold text-lg mb-6">
-
-Product Categories
-
-</h2>
-
-
-
-<div className="space-y-2">
-
-
-
-{products.map(cat=>(
-
-<button
-
-key={cat.name}
-
-onClick={()=>{
-
-setActiveCategory(cat)
-
-setActiveType(cat.types[0])
-
-}}
-
-className={`w-full text-left px-4 py-2 rounded-lg text-sm font-medium transition
-
-${activeCategory.name===cat.name
-
-? "bg-green-600 text-white"
-
-: "hover:bg-gray-100"
-
-}`}
-
->
-
-{cat.name}
-
-</button>
-
-))}
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-{/* MAIN AREA */}
-
-
-
-<div className="flex-1 p-10">
-
-
-
-{/* BREADCRUMB */}
-
-
-
-<div className="text-sm text-gray-500 mb-6">
-
-
-
-{activeCategory.name} / {activeType.name}
-
-{activeGroup && ` / ${activeGroup.name}`}
-
-
-
-</div>
-
-
-
-
-
-{/* SEARCH */}
-
-
-
-<div className="relative max-w-md mb-8">
-
-
-
-<Search className="absolute left-3 top-3 text-gray-400"/>
-
-
-
-<input
-
-type="text"
-
-placeholder="Search product..."
-
-value={search}
-
-onChange={(e)=>setSearch(e.target.value)}
-
-className="w-full pl-10 pr-4 py-2 border rounded-lg"
-
-/>
-
-
-
-</div>
-
-
-
-
-
-{/* TYPE NAVIGATION */}
-
-
-
-<div className="flex flex-wrap gap-3 mb-6">
-
-
-
-{activeCategory.types.map(type=>(
-
-<button
-
-key={type.name}
-
-onClick={()=>setActiveType(type)}
-
-className={`px-4 py-2 rounded-full text-sm font-medium transition
-
-${activeType.name===type.name
-
-? "bg-green-600 text-white"
-
-: "bg-white border hover:bg-gray-100"
-
-}`}
-
->
-
-{type.name}
-
-</button>
-
-))}
-
-
-
-</div>
-
-
-
-
-
-{/* GROUP NAVIGATION */}
-
-
-
-{activeType.groups && (
-
-
-
-<div className="flex flex-wrap gap-3 mb-8">
-
-
-
-{activeType.groups.map(group=>(
-
-<button
-
-key={group.name}
-
-onClick={()=>setActiveGroup(group)}
-
-className={`px-4 py-2 rounded-full text-sm font-medium transition
-
-${activeGroup?.name===group.name
-
-? "bg-green-100 text-green-700"
-
-: "bg-white border hover:bg-gray-100"
-
-}`}
-
->
-
-{group.name}
-
-</button>
-
-))}
-
-
-
-</div>
-
-
-
-)}
-
-
-
-
-
-{/* PRODUCT GRID */}
-
-
-
-<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-
-
-{filteredProducts.map((product,index)=>(
-
-
-
-<div
-
-key={index}
-
-className="bg-white rounded-xl shadow hover:shadow-lg transition p-6"
-
->
-
-
-
-<div className="relative h-48 mb-4 rounded-lg overflow-hidden">
-
-
-
-<Image
-  src={product.image}
-  alt={product.name}
-  fill
-  className="object-cover"
-/>
-
-
-</div>
-
-
-
-<h3 className="font-semibold text-lg mb-4">
-
-{product.name}
-
-</h3>
-
-
-
-<div className="flex gap-2">
-
-
-
-<Link
-
-href="/contact"
-
-className="flex-1 bg-green-600 text-white text-center py-2 rounded-md text-sm hover:bg-green-700"
-
->
-
-Get Quote
-
-</Link>
-
-
-
-<a
-  href={product.tds}   // <-- this points to the PDF path
-  target="_blank"       // open in a new tab
-  rel="noopener noreferrer"
-  className="flex items-center gap-2 px-3 border border-green-600 text-green-600 rounded-md text-sm hover:bg-green-100"
->
-  <Download size={16} />
-  TDS
-</a>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-))}
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-)
-
-}
 

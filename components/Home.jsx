@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 export default function Home() {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const features = [
     {
@@ -39,7 +40,7 @@ export default function Home() {
   };
 
   const directors = [
-     {
+    {
       name: "Khurram Mahmood Ramay",
       role: "Director",
       image: "/CEO image.png",
@@ -57,8 +58,8 @@ export default function Home() {
       image: "/Romesa.png",
       email: "romesa@vinkimya.com",
     },
-    
-   
+
+
     {
       name: "Adil Sheryar Mufti ",
       role: "Director",
@@ -133,180 +134,202 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
+      {/* LOADER OVERLAY */}
+      <div
+        className={`fixed inset-0 z-[100] bg-white flex items-center justify-center transition-opacity duration-700 pointer-events-none ${isVideoLoaded ? 'opacity-0' : 'opacity-100'
+          }`}
+      >
+        <div className="animate-pulse">
+          <Image
+            src="/logo.jpg"
+            alt="Vinkimya Loading"
+            width={300}
+            height={100}
+            className="object-contain"
+            priority
+          />
+        </div>
+      </div>
 
-      {/* HERO */}
-      <section className="relative h-[700px] flex items-center justify-center text-center text-white overflow-hidden">
+      <div className="min-h-screen flex flex-col">
 
-        <Image
-          src="/Image.jpg"
-          alt="Hero"
-          fill
-          className="object-cover scale-105 hover:scale-110 transition duration-[6000ms]"
-          priority
-        />
+        {/* HERO */}
+        <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
 
-        <div className="absolute inset-0 bg-black/40"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            onCanPlayThrough={() => setIsVideoLoaded(true)}
+            className="absolute inset-0 w-full h-full object-cover scale-105"
+          >
+            <source src="/videos/hero.mp4" type="video/mp4" />
+          </video>
 
-        <div className="relative z-10 max-w-3xl">
+          <div className="absolute inset-0 bg-black/40"></div>
 
-          <h1 className="text-6xl font-bold mb-6">Premium Chemical Solutions</h1>
+          <div className="relative z-10 max-w-3xl">
 
-          <p className="text-xl mb-10">
-            Leading chemical company providing premium products and exclusive solutions to global clients
-          </p>
+            <h1 className="text-6xl font-bold mb-6">Premium Chemical Solutions</h1>
 
-          <div className="flex gap-4 justify-center">
+            <p className="text-xl mb-10">
+              Leading chemical company providing premium products and exclusive solutions to global clients
+            </p>
 
-            <Link href="/products" className="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 hover:scale-105 transition flex items-center">
-              Explore Products
-              <ChevronRight size={20} className="ml-2"/>
-            </Link>
+            <div className="flex gap-4 justify-center">
 
-            <Link href="/about" className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition">
-              Learn More
-            </Link>
+              <Link href="/products" className="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 hover:scale-105 transition flex items-center">
+                Explore Products
+                <ChevronRight size={20} className="ml-2" />
+              </Link>
+
+              <Link href="/about" className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition">
+                Learn More
+              </Link>
+
+            </div>
 
           </div>
 
-        </div>
+        </section>
 
-      </section>
+        {/* FEATURES */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Why Choose Vinkimya?</h2>
+          </div>
 
-      {/* FEATURES */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Why Choose Vinkimya?</h2>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <div key={index} className="p-8 border rounded-xl hover:border-green-500 hover:shadow-xl hover:-translate-y-2 transition">
-                <div className="mb-4 p-3 bg-green-100 rounded-lg inline-block">
-                  <Icon size={24} className="text-green-600"/>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="p-8 border rounded-xl hover:border-green-500 hover:shadow-xl hover:-translate-y-2 transition">
+                  <div className="mb-4 p-3 bg-green-100 rounded-lg inline-block">
+                    <Icon size={24} className="text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* STATS */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-3 text-center gap-8">
+            <div>
+              <div className="text-5xl font-bold text-green-600">{productsCount}+</div>
+              <p className="text-gray-600">Premium Products</p>
+            </div>
+            <div>
+              <div className="text-5xl font-bold text-green-600">{countriesCount}+</div>
+              <p className="text-gray-600">Countries Served</p>
+            </div>
+            <div>
+              <div className="text-5xl font-bold text-green-600">{yearsCount}+</div>
+              <p className="text-gray-600">Years Experience</p>
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">What Our Clients Say</h2>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            {[
+              { name: 'Arslan', message: 'Vinkimya provides top-quality products and excellent service.' },
+              { name: 'Zainab', message: 'Their olive oil is unmatched in quality.' },
+              { name: 'Awais', message: 'Professional, timely, and always exceeding expectations.' }
+            ].map((testimonial, idx) => (
+              <div key={idx} className="bg-gray-50 rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition">
+                <p className="italic text-gray-700 mb-4">"{testimonial.message}"</p>
+                <h4 className="font-bold">{testimonial.name}</h4>
+                <p className="text-gray-600">{testimonial.company}</p>
               </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 text-center gap-8">
-          <div>
-            <div className="text-5xl font-bold text-green-600">{productsCount}+</div>
-            <p className="text-gray-600">Premium Products</p>
+            ))}
           </div>
-          <div>
-            <div className="text-5xl font-bold text-green-600">{countriesCount}+</div>
-            <p className="text-gray-600">Countries Served</p>
-          </div>
-          <div>
-            <div className="text-5xl font-bold text-green-600">{yearsCount}+</div>
-            <p className="text-gray-600">Years Experience</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">What Our Clients Say</h2>
-        </div>
+        {/* CEO */}
+        <section className="py-24 bg-white text-center">
+          <h2 className="text-4xl font-bold mb-10">Chief Executive Officer</h2>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          {[
-            { name: 'Arslan', message: 'Vinkimya provides top-quality products and excellent service.' },
-            { name: 'Zainab',  message: 'Their olive oil is unmatched in quality.' },
-            { name: 'Awais',message: 'Professional, timely, and always exceeding expectations.' }
-          ].map((testimonial, idx) => (
-            <div key={idx} className="bg-gray-50 rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition">
-              <p className="italic text-gray-700 mb-4">"{testimonial.message}"</p>
-              <h4 className="font-bold">{testimonial.name}</h4>
-              <p className="text-gray-600">{testimonial.company}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CEO */}
-      <section className="py-24 bg-white text-center">
-        <h2 className="text-4xl font-bold mb-10">Chief Executive Officer</h2>
-
-        <div className="flex justify-center">
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-[350px]">
-            <div className="relative w-full aspect-[4/5]">
-              <Image src={ceo.image} alt={ceo.name} fill className="object-cover"/>
-            </div>
-
-            <div className="p-6">
-              <h3 className="text-2xl font-bold">{ceo.name}</h3>
-              <p className="text-gray-600 mb-2">{ceo.role}</p>
-              <a href={`mailto:${ceo.email}`} className="text-green-600 hover:text-green-800" > Email </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* DIRECTORS */}
-      <section className="py-24 bg-white">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">Meet Our Directors</h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 max-w-7xl mx-auto">
-          {directors.map((director, idx) => (
-            <div key={idx} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div className="flex justify-center">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-[350px]">
               <div className="relative w-full aspect-[4/5]">
-                <Image src={director.image} alt={director.name} fill className="object-cover"/>
+                <Image src={ceo.image} alt={ceo.name} fill className="object-cover" />
               </div>
 
-              <div className="p-6 text-center">
-                <h3 className="text-2xl font-bold">{director.name}</h3>
-                <p className="text-gray-600 mb-2">{director.role}</p>
-                <a href={`mailto:${director.email}`} className="text-green-600 hover:text-green-800" > Email </a>              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section className="py-20 bg-gray-50">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold">Our Team</h2>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
-          {teamMembers.map((member, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow overflow-hidden">
-              <div className="relative w-full aspect-[4/5]">
-                <Image src={member.image} alt={member.name} fill className="object-cover"/>
-              </div>
-
-              <div className="p-5 text-center">
-                <h3 className="font-semibold text-lg">{member.name}</h3>
-                <p className="text-gray-600 mb-2">{member.role}</p>
-                <a href={`mailto:${member.email}`} className="text-green-600 hover:text-green-800" > Email </a>
-
+              <div className="p-6">
+                <h3 className="text-2xl font-bold">{ceo.name}</h3>
+                <p className="text-gray-600 mb-2">{ceo.role}</p>
+                <a href={`mailto:${ceo.email}`} className="text-green-600 hover:text-green-800" > Email </a>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* SUBSCRIBE */} <section className="py-20 bg-white"> 
-        <div className="max-w-4xl mx-auto text-center"> 
-          <h2 className="text-3xl font-bold mb-4"> Stay Updated </h2> 
-          <p className="text-gray-600 mb-6"> Subscribe to receive updates about our products and news. </p>
-           <form onSubmit={handleSubscribe} className="flex gap-4 justify-center"> <input type="email" placeholder="Your Email" value={email} onChange={(e)=>setEmail(e.target.value)} className="border px-4 py-3 rounded-lg w-80" required /> 
-           <button type="submit" disabled={loading} className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition" > 
-            {loading ? "Subscribing..." : "Subscribe"} </button> </form> {subscribeMessage && ( <p className="text-green-600 mt-4">{subscribeMessage}</p> )} </div>
-             </section>
-              </div> 
-    ); 
+        {/* DIRECTORS */}
+        <section className="py-24 bg-white">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold">Meet Our Directors</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 max-w-7xl mx-auto">
+            {directors.map((director, idx) => (
+              <div key={idx} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div className="relative w-full aspect-[4/5]">
+                  <Image src={director.image} alt={director.name} fill className="object-cover" />
+                </div>
+
+                <div className="p-6 text-center">
+                  <h3 className="text-2xl font-bold">{director.name}</h3>
+                  <p className="text-gray-600 mb-2">{director.role}</p>
+                  <a href={`mailto:${director.email}`} className="text-green-600 hover:text-green-800" > Email </a>              </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* TEAM */}
+        <section className="py-20 bg-gray-50">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold">Our Team</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+            {teamMembers.map((member, idx) => (
+              <div key={idx} className="bg-white rounded-xl shadow overflow-hidden">
+                <div className="relative w-full aspect-[4/5]">
+                  <Image src={member.image} alt={member.name} fill className="object-cover" />
+                </div>
+
+                <div className="p-5 text-center">
+                  <h3 className="font-semibold text-lg">{member.name}</h3>
+                  <p className="text-gray-600 mb-2">{member.role}</p>
+                  <a href={`mailto:${member.email}`} className="text-green-600 hover:text-green-800" > Email </a>
+
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SUBSCRIBE */} <section className="py-20 bg-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4"> Stay Updated </h2>
+            <p className="text-gray-600 mb-6"> Subscribe to receive updates about our products and news. </p>
+            <form onSubmit={handleSubscribe} className="flex gap-4 justify-center"> <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} className="border px-4 py-3 rounded-lg w-80" required />
+              <button type="submit" disabled={loading} className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition" >
+                {loading ? "Subscribing..." : "Subscribe"} </button> </form> {subscribeMessage && (<p className="text-green-600 mt-4">{subscribeMessage}</p>)} </div>
+        </section>
+      </div>
+    </>
+  );
 }
