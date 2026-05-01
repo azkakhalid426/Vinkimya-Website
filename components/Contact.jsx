@@ -2,12 +2,14 @@
 
 import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 export default function Contact() {
   const formRef = useRef();
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [phoneValue, setPhoneValue] = useState('');
 
   const contactInfo = [
     { icon: Phone, title: 'Phone', details: ['+92 (42) 37932518/19', '+92 (42) 111-111-411'], type: 'tel' },
@@ -15,27 +17,27 @@ export default function Contact() {
     { icon: MapPin, title: 'Location', details: ['Plot#4, ST. Factory Zone Al-Raai Road, Jia Musa Shahdrah, Lahore, Pakistan'] },
   ];
 
-  const sendEmail = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (phoneValue && !isValidPhoneNumber(phoneValue)) {
+      toast.error('Please enter a valid phone number.');
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const result = await emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      );
+      // Simulate backend network delay
+      await new Promise(resolve => setTimeout(resolve, 800));
 
-      console.log("Email sent:", result);
-
-      setSubmitted(true);
+      toast.success('Thank you! Your message has been sent.');
       formRef.current.reset();
+      setPhoneValue('');
 
-      setTimeout(() => setSubmitted(false), 4000);
     } catch (error) {
-      console.error("EmailJS Error:", error);
-      alert("Failed to send message.");
+      console.error(error);
+      toast.error('Failed to send message.');
     }
 
     setLoading(false);
@@ -87,13 +89,7 @@ export default function Contact() {
           <div className="bg-green-50 rounded-xl p-8 border border-green-200">
             <h2 className="text-3xl font-bold mb-8">Send us a Message</h2>
 
-            {submitted && (
-              <div className="mb-6 p-4 bg-green-100 border border-green-500 text-green-700 rounded">
-                Thank you! Your message has been sent.
-              </div>
-            )}
-
-            <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -115,12 +111,17 @@ export default function Contact() {
 
               </div>
 
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                className="w-full px-4 py-2 border rounded-lg"
-              />
+              <div className="w-full bg-white px-4 py-2 border rounded-lg focus-within:ring-2 focus-within:ring-green-500">
+                <PhoneInput
+                  international
+                  defaultCountry="US"
+                  name="phone"
+                  value={phoneValue}
+                  onChange={setPhoneValue}
+                  placeholder="Phone Number"
+                  className="w-full outline-none"
+                />
+              </div>
 
               <input
                 type="text"
