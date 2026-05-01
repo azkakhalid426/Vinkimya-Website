@@ -70,7 +70,7 @@ export default function Home() {
 
   const teamMembers = [
     { name: 'Amjad Siddique', role: 'IT Executive', image: '/Amjad.jpeg', email: 'amjad@vinkimya.com' },
-    { name: 'Azka Khalid', role: 'Foreign Trade Executive', image: '/Azka.jpeg', email: 'azka@vinkimya.com' },
+    { name: 'Azka Khalid', role: 'Foreign Trade Executive', image: '/female_placeholder.png', email: 'azka@vinkimya.com' },
     { name: 'Ali Haider', role: 'Accounts Executive', image: '/ali.jpeg', email: 'ali@vinkimya.com' },
     { name: 'Malik Farrukh', role: 'Marketing Executive', image: '/Farukh.jpeg', email: 'malikfarrukh@vinkimya.com' },
     { name: 'Naveed', role: 'Logistics Executive', image: '/Naveed.jpeg', email: 'naveed@vinkimya.com' },
