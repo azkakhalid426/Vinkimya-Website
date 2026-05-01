@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Leaf, Award, Globe, Sparkles } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import toast from 'react-hot-toast';
 
 export default function Home() {
@@ -80,6 +80,9 @@ export default function Home() {
   const [countriesCount, setCountriesCount] = useState(0);
   const [yearsCount, setYearsCount] = useState(0);
 
+  const statsRef = useRef(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
   useEffect(() => {
     const animate = (target, setter, duration) => {
       let start = 0;
@@ -97,10 +100,23 @@ export default function Home() {
       }, 20);
     };
 
-    animate(500, setProductsCount, 1000);
-    animate(50, setCountriesCount, 1000);
-    animate(20, setYearsCount, 1000);
-  }, []);
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated) {
+        setHasAnimated(true);
+        animate(500, setProductsCount, 1000);
+        animate(50, setCountriesCount, 1000);
+        animate(20, setYearsCount, 1000);
+      }
+    }, { threshold: 0.3 });
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) observer.disconnect();
+    };
+  }, [hasAnimated]);
 
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -172,14 +188,14 @@ export default function Home() {
               Leading chemical company providing premium products and exclusive solutions to global clients
             </p>
 
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
 
-              <Link href="/products" className="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 hover:scale-105 transition flex items-center">
+              <Link href="/products" className="bg-white text-green-600 px-6 py-2 md:px-8 md:py-3 rounded-lg font-bold text-sm md:text-base hover:bg-green-50 hover:scale-105 transition flex items-center justify-center">
                 Explore Products
-                <ChevronRight size={20} className="ml-2" />
+                <ChevronRight size={18} className="ml-2 md:w-5 md:h-5" />
               </Link>
 
-              <Link href="/about" className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition">
+              <Link href="/about" className="bg-green-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-lg font-bold text-sm md:text-base hover:bg-green-700 hover:scale-105 transition flex items-center justify-center">
                 Learn More
               </Link>
 
@@ -212,7 +228,7 @@ export default function Home() {
         </section>
 
         {/* STATS */}
-        <section className="py-20 bg-gray-50">
+        <section ref={statsRef} className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto grid md:grid-cols-3 text-center gap-8">
             <div>
               <div className="text-5xl font-bold text-green-600">{productsCount}+</div>
@@ -254,8 +270,8 @@ export default function Home() {
         <section className="py-24 bg-white text-center">
           <h2 className="text-4xl font-bold mb-10">Chief Executive Officer</h2>
 
-          <div className="flex justify-center">
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-[350px]">
+          <div className="flex justify-center px-4">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-[280px] sm:max-w-[350px]">
               <div className="relative w-full aspect-[4/5]">
                 <Image src={ceo.image} alt={ceo.name} fill className="object-cover" />
               </div>
@@ -275,9 +291,9 @@ export default function Home() {
             <h2 className="text-4xl font-bold">Meet Our Directors</h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 max-w-7xl mx-auto px-6">
             {directors.map((director, idx) => (
-              <div key={idx} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div key={idx} className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-[260px] mx-auto w-full">
                 <div className="relative w-full aspect-[4/5]">
                   <Image src={director.image} alt={director.name} fill className="object-cover" />
                 </div>
@@ -297,9 +313,9 @@ export default function Home() {
             <h2 className="text-4xl font-bold">Our Team</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 max-w-7xl mx-auto px-6">
             {teamMembers.map((member, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow overflow-hidden">
+              <div key={idx} className="bg-white rounded-xl shadow overflow-hidden max-w-[240px] mx-auto w-full">
                 <div className="relative w-full aspect-[4/5]">
                   <Image src={member.image} alt={member.name} fill className="object-cover" />
                 </div>
@@ -315,13 +331,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SUBSCRIBE */} <section className="py-20 bg-white">
+        {/* SUBSCRIBE */} <section className="py-20 bg-white px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4"> Stay Updated </h2>
             <p className="text-gray-600 mb-6"> Subscribe to receive updates about our products and news. </p>
-            <form onSubmit={handleSubscribe} className="flex gap-4 justify-center"> <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} className="border px-4 py-3 rounded-lg w-80" required />
-              <button type="submit" disabled={loading} className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition" >
-                {loading ? "Subscribing..." : "Subscribe"} </button> </form> </div>
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} className="border px-4 py-3 rounded-lg w-full max-w-[320px] sm:w-80" required />
+              <button type="submit" disabled={loading} className="w-full sm:w-auto bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 hover:scale-105 transition" >
+                {loading ? "Subscribing..." : "Subscribe"}
+              </button>
+            </form>
+          </div>
 
         </section>
       </div>
